@@ -1,0 +1,16 @@
+version: '2'
+services:
+  php-fpm:
+    ##################################################
+    # BUILD section
+    ##################################################
+    build:
+      context: ./build
+      dockerfile: Dockerfile
+      args:
+        BUILD_TZ: Europe/Berlin
+      x-bake:
+        platforms:
+          - linux/amd64
+          - linux/arm64
+    image: unimock/php5-fpm:0.0.0
